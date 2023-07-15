@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Statistics = ({ stateValues, total, positive }) => {
-  const totalFeedback = total;
-  const positivePercentage = positive;
+  const totalFeedback = total();
+  const positivePercentage = positive();
   const staticArray = [];
   for (const el in stateValues) {
     staticArray.push(
@@ -38,6 +38,6 @@ Statistics.propTypes = {
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
   }),
-  total: PropTypes.number.isRequired,
-  positive: PropTypes.number.isRequired,
+  total: PropTypes.func.isRequired,
+  positive: PropTypes.func.isRequired,
 };
